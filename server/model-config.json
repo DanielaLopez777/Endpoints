@@ -34,5 +34,21 @@
   "Role": {
     "dataSource": "postgresDB",
     "public": false
+  },
+  "user": {
+    "dataSource": "postgresDB",
+    "public": true
+  },
+  "article": {
+    "dataSource": "postgresDB",
+    "public": true
+  },
+  "comment": {
+    "dataSource": "postgresDB",
+    "public": true
+  },
+  "profile": {
+    "dataSource": "postgresDB",
+    "public": true
   }
 }
