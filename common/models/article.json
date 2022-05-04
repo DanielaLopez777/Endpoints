@@ -1,7 +1,7 @@
 {
   "name": "article",
   "plural": "articles",
-  "base": "Model",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true

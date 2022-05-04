@@ -13,9 +13,6 @@
       "./mixins"
     ]
   },
-  "User": {
-    "dataSource": "postgresDB"
-  },
   "AccessToken": {
     "dataSource": "postgresDB",
     "public": false
@@ -31,13 +28,12 @@
       "strictObjectIDCoercion": true
     }
   },
+  "User": {
+    "dataSource": "postgresDB"
+  },
   "Role": {
     "dataSource": "postgresDB",
     "public": false
-  },
-  "user": {
-    "dataSource": "postgresDB",
-    "public": true
   },
   "article": {
     "dataSource": "postgresDB",

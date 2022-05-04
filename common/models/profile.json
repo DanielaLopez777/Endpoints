@@ -1,7 +1,7 @@
 {
   "name": "profile",
   "plural": "profiles",
-  "base": "Model",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -16,10 +16,19 @@
     },
     "image": {
       "type": "string"
+    },
+    "id": {
+      "type": "number"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "userRelation": {
+      "type": "hasOne",
+      "model": "user",
+      "foreignKey": "username"
+    }
+  },
   "acls": [],
   "methods": {}
 }

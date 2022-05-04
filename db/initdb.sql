@@ -5,10 +5,12 @@ CREATE TABLE "user" (
     "email" TEXT NOT NULL,
     "emailverified" BOOL,
     "verificationtoken" TEXT,
+	"userid" SERIAL,
     "id" SMALLSERIAL PRIMARY KEY
 );
 
 CREATE TABLE "profile" (
+	"id" SERIAL,
 	"username" VARCHAR(20) REFERENCES "user"("username"),
 	"bio" TEXT,
 	"image" VARCHAR(255),
