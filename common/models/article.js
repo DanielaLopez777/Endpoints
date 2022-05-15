@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(Article) {
-    Profile.listArticles = async function (tag, author, favorited){
+    Article.listArticles = async function (tag, author, favorited){
         const filter = {where : {}}
         if (tag) {
             filter.where.tag = tag
@@ -15,7 +15,7 @@ module.exports = function(Article) {
         const data = await Profile.findOne(filter)
         return data;
     }
-    Profile.remoteMethod('listarticles',{
+    Article.remoteMethod('listarticles',{
             http: { verb: 'get'},
             accepts: [
                 { arg: "tag", type: "string" },
@@ -25,11 +25,11 @@ module.exports = function(Article) {
             returns: { arg: "listarticles", type: "object" }
         });
     
-    Profile.feedarticles = async function (tag, author, favorited){
-        const data = Profile.findOne({where:{tag, author, favorited}})
+    Article.feedarticles = async function (tag, author, favorited){
+        const data = Article.findOne({where:{tag, author, favorited}})
         return data;
     }
-    Profile.remoteMethod('feedarticles',{
+    Article.remoteMethod('feedarticles',{
             http: { verb: 'get'},
             accepts: [
                 //parametros de querry que se utiliza 
