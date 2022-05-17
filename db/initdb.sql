@@ -1,20 +1,20 @@
-CREATE TABLE "user" (
-    "realm" TEXT,
-    "username" VARCHAR(20) NOT NULL UNIQUE,
-    "password" TEXT NOT NULL,
-    "email" TEXT NOT NULL,
-    "emailverified" BOOL,
-    "verificationtoken" TEXT,
-	"userid" SERIAL,
-    "id" SMALLSERIAL PRIMARY KEY
-);
-
 CREATE TABLE "profile" (
 	"id" SERIAL,
-	"username" VARCHAR(20) REFERENCES "user"("username"),
+	"username" VARCHAR(20) ,
 	"bio" TEXT,
 	"image" VARCHAR(255),
 	PRIMARY KEY("username")
+);
+
+CREATE TABLE "user" (
+    "realm" TEXT,
+    "username" VARCHAR(20) REFERENCES "profile"("username"),
+    "password" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "emailverified" BOOLEAN,
+    "verificationtoken" TEXT,
+	"userid" SERIAL,
+    "id" SERIAL PRIMARY KEY
 );
 
 CREATE TABLE "article" (
@@ -24,7 +24,7 @@ CREATE TABLE "article" (
 	"body" TEXT,
 	"createdAt" TIMESTAMP,
 	"updatedAt" TIMESTAMP,
-	"author" VARCHAR(20) REFERENCES "user"("username"),
+	"author" VARCHAR(20) REFERENCES "profile"("username"),
 	"title" VARCHAR(255) NOT NULL
 );
 
@@ -33,6 +33,6 @@ CREATE TABLE "comment" (
 	"createdAt" TIMESTAMP,
 	"updatedAt" TIMESTAMP,
 	"body" TEXT,
-	"author" VARCHAR(20) REFERENCES "user"("username"),
+	"author" VARCHAR(20) REFERENCES "profile"("username"),
 	"article" INT REFERENCES "article"("id")
 );
