@@ -3,14 +3,14 @@
     "name": "db",
     "connector": "memory"
   },
-  "postgresDB": {
-    "host": "localhost",
+  "postgresql": {
+    "host": "docker-database",
     "port": 5432,
-    "url": "",
     "database": "db",
     "password": "password",
-    "name": "postgresDB",
+    "name": "postgresql",
     "user": "user",
-    "connector": "postgresql"
-  }
+    "connector": "postgresql",
+    "idleTimeoutMillis": 20000
+  },
 }

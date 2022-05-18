@@ -1,8 +1,8 @@
-version: "0"
+version: "2"
 services: 
   postgres:
     image: postgres
-    container_name: DB
+    container_name: docker-database
     ports:
       - 5432:5432
     environment:
@@ -11,3 +11,11 @@ services:
       - POSTGRES_DB=db
     volumes:
       - ./db:/docker-entrypoint-initdb.d
+  server:
+    build: .
+    container_name: server
+    links:
+      - postgres
+    ports:
+      - 3000:3000
+      - 9229:9229
