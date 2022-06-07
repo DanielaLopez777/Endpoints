@@ -3,7 +3,7 @@ const util = require('util');
 
 module.exports = async function(server) {
     // https://loopback.io/doc/en/lb3/Creating-a-database-schema-from-models.html
-    const ds = server.dataSources.postgresDB;
+    const ds = server.dataSources.postgresql;
     const query = 'SELECT EXISTS (SELECT FROM pg_tables WHERE tablename = $1);'
     const lbTables = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
     let missingTables = [];

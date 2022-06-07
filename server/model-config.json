@@ -14,37 +14,37 @@
     ]
   },
   "AccessToken": {
-    "dataSource": "postgresDB",
+    "dataSource": "postgresql",
     "public": false
   },
   "ACL": {
-    "dataSource": "postgresDB",
+    "dataSource": "postgresql",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "postgresDB",
+    "dataSource": "postgresql",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "User": {
-    "dataSource": "postgresDB"
+    "dataSource": "postgresql"
   },
   "Role": {
-    "dataSource": "postgresDB",
+    "dataSource": "postgresql",
     "public": false
   },
   "article": {
-    "dataSource": "postgresDB",
+    "dataSource": "postgresql",
     "public": true
   },
   "comment": {
-    "dataSource": "postgresDB",
+    "dataSource": "postgresql",
     "public": true
   },
   "profile": {
-    "dataSource": "postgresDB",
+    "dataSource": "postgresql",
     "public": true
   }
 }

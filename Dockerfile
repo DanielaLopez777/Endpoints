@@ -6,6 +6,8 @@ WORKDIR /app
 
 RUN apt-get update 
 
+RUN npm install -g nodemon;
+
 # Copy files to app directory
 COPY . /app
 
