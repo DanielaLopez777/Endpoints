@@ -9,29 +9,54 @@
   "properties": {
     "id": {
       "type": "number",
-      "required": true
+      "required": true,
+      "postgresql": {
+        "columnName": "id"
+      }
     },
     "slug": {
-      "type": "string"
+      "type": "string",
+      "postgresql": {
+        "columnName": "slug"
+      }
+      
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "postgresql": {
+        "columnName": "description"
+      }
     },
     "body": {
-      "type": "string"
+      "type": "string",
+      "postgresql": {
+        "columnName": "body"
+      }
     },
     "createdAt": {
-      "type": "date"
+      "type": "date",
+      "postgresql": {
+        "columnName": "createdAt"
+      }
     },
     "updatedAt": {
-      "type": "date"
+      "type": "date",
+      "postgresql": {
+        "columnName": "updatedAt"
+      }
     },
     "author": {
-      "type": "string"
+      "type": "number",
+      "postgresql": {
+        "columnName": "author"
+      }
     },
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "postgresql": {
+        "columnName": "title"
+      }
     }
   },
   "validations": [],

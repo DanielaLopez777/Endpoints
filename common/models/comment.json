@@ -9,22 +9,40 @@
   "properties": {
     "id": {
       "type": "number",
-      "required": true
+      "required": true,
+      "postgresql": {
+        "columnName": "id"
+      }
     },
     "createdAt": {
-      "type": "date"
+      "type": "date",
+      "postgresql": {
+        "columnName": "createdAt"
+      }
     },
     "updatedAt": {
-      "type": "date"
+      "type": "date",
+      "postgresql": {
+        "columnName": "updateAt"
+      }
     },
     "body": {
-      "type": "string"
+      "type": "string",
+      "postgresql": {
+        "columnName": "body"
+      }
     },
     "author": {
-      "type": "string"
+      "type": "number",
+      "postgresql": {
+        "columnName": "author"
+      }
     },
     "article": {
-      "type": "number"
+      "type": "number",
+      "postgresql": {
+        "columnName": "article"
+      }
     }
   },
   "validations": [],

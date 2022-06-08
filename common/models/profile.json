@@ -9,16 +9,28 @@
   "properties": {
     "username": {
       "type": "string",
-      "required": true
+      "required": true,
+      "postgresql": {
+        "columnName": "username"
+      }
     },
     "bio": {
-      "type": "string"
+      "type": "string",
+      "postgresql": {
+        "columnName": "bio"
+      }
     },
     "image": {
-      "type": "string"
+      "type": "string",
+      "postgresql": {
+        "columnName": "image"
+      }
     },
     "id": {
-      "type": "number"
+      "type": "number",
+      "postgresql": {
+        "columnName": "id"
+      }
     }
   },
   "validations": [],

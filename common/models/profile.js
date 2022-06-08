@@ -12,7 +12,10 @@ module.exports = function(Profile) {
     });
 
     Profile.unfollowUser = async function (username){
-        const data = Profile.findOne({where:{username}})
+        const data = await Profile.findOne({where:{username}})
+        console.log("data", data)
+        const deleted = await Profile.deleteById(data.id)
+        console.log(deleted)
         return data;
     }
     Profile.remoteMethod('unfollowUser',{

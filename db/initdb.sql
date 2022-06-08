@@ -3,12 +3,12 @@ CREATE TABLE "profile" (
 	"username" VARCHAR(20) ,
 	"bio" TEXT,
 	"image" VARCHAR(255),
-	PRIMARY KEY("username")
+	PRIMARY KEY("id")
 );
 
 CREATE TABLE "user" (
     "realm" TEXT,
-    "username" VARCHAR(20) REFERENCES "profile"("username"),
+    "username" serial REFERENCES "profile"("id"),
     "password" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "emailverified" BOOLEAN,
@@ -24,7 +24,7 @@ CREATE TABLE "article" (
 	"body" TEXT,
 	"createdAt" TIMESTAMP,
 	"updatedAt" TIMESTAMP,
-	"author" VARCHAR(20) REFERENCES "profile"("username"),
+	"author" serial REFERENCES "profile"("id"),
 	"title" VARCHAR(255) NOT NULL
 );
 
@@ -33,6 +33,6 @@ CREATE TABLE "comment" (
 	"createdAt" TIMESTAMP,
 	"updatedAt" TIMESTAMP,
 	"body" TEXT,
-	"author" VARCHAR(20) REFERENCES "profile"("username"),
+	"author" serial REFERENCES "profile"("id"),
 	"article" INT REFERENCES "article"("id")
 );
