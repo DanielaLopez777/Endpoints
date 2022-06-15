@@ -7,7 +7,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "node .",
+    "start": "nodemon --inspect=0.0.0.0 .",
     "posttest": "npm run lint"
   },
   "dependencies": {
