@@ -36,3 +36,9 @@ CREATE TABLE "comment" (
 	"author" serial REFERENCES "profile"("id"),
 	"article" INT REFERENCES "article"("id")
 );
+
+CREATE TABLE "follows" (
+	"id" SERIAL PRIMARY KEY,
+	"follower" INT REFERENCES "user"("id"),
+	"following" INT REFERENCES "profile"("id")
+);

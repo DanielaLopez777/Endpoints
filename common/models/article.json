@@ -19,7 +19,6 @@
       "postgresql": {
         "columnName": "slug"
       }
-      
     },
     "description": {
       "type": "string",

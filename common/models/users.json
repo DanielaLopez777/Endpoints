@@ -1,82 +1,80 @@
 {
-    "name": "user",
-    "plural": "users",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-      "validateUpsert": true
-    },
-    "properties": {
-      "username": {
-        "type": "number",
-        "required": true,
-        "postgresql": {
-          "columnName": "username"
-        }
-      },
-      "realm": {
-        "type": "string",
-        "postgresql": {
-          "columnName": "realm"
-        }
-      },
-      "password": {
-        "type": "string",
-        "postgresql": {
-          "columnName": "password"
-        }
-      },
-      "email": {
-        "type": "number",
-        "postgresql": {
-          "columnName": "email"
-        }
-      },
-      "emailverified": {
-        "type": "boolean",
-        "postgresql": {
-          "columnName": "emailverified"
-        }
-      },
-      "verificationtoken": {
-        "type": "text",
-        "postgresql": {
-          "columnName": "verificationtoken"
-        }
-      },
-      "userid": {
-        "type": "number",
-        "postgresql": {
-          "columnName": "userid"
-        }
-      },
-      "id": {
-        "type": "number",
-        "postgresql": {
-          "columnName": "id"
-        }
-      }
-
-    },
-    "validations": [],
-    "relations": {
-      "profileRelation": {
-        "type": "hasOne",
-        "model": "article",
-        "foreignKey": "author"
-      },
-      "profileRelation2": {
-        "type": "hasOne",
-        "model": "comment",
-        "foreignKey": "author"
-      },
-      "profileRelation3": {
-        "type": "hasOne",
-        "model": "user",
-        "foreignKey": "username"
+  "name": "user",
+  "plural": "users",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "username": {
+      "type": "number",
+      "required": true,
+      "postgresql": {
+        "columnName": "username"
       }
     },
-    "acls": [],
-    "methods": {}
-  }
-  
+    "realm": {
+      "type": "string",
+      "postgresql": {
+        "columnName": "realm"
+      }
+    },
+    "password": {
+      "type": "string",
+      "postgresql": {
+        "columnName": "password"
+      }
+    },
+    "email": {
+      "type": "number",
+      "postgresql": {
+        "columnName": "email"
+      }
+    },
+    "emailverified": {
+      "type": "boolean",
+      "postgresql": {
+        "columnName": "emailverified"
+      }
+    },
+    "verificationtoken": {
+      "type": "text",
+      "postgresql": {
+        "columnName": "verificationtoken"
+      }
+    },
+    "userid": {
+      "type": "number",
+      "postgresql": {
+        "columnName": "userid"
+      }
+    },
+    "id": {
+      "type": "number",
+      "postgresql": {
+        "columnName": "id"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "profileRelation": {
+      "type": "hasOne",
+      "model": "article",
+      "foreignKey": "author"
+    },
+    "profileRelation2": {
+      "type": "hasOne",
+      "model": "comment",
+      "foreignKey": "author"
+    },
+    "profileRelation3": {
+      "type": "hasOne",
+      "model": "user",
+      "foreignKey": "username"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
