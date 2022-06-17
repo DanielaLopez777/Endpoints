@@ -1,30 +1,27 @@
 CREATE TABLE "profile" (
-	"id" SERIAL,
+	"id" SERIAL PRIMARY KEY,
 	"username" VARCHAR(20) ,
 	"bio" TEXT,
-	"image" VARCHAR(255),
-	PRIMARY KEY("id")
+	"image" VARCHAR(255)
 );
 
 CREATE TABLE "user" (
-    "realm" TEXT,
-    "username" serial REFERENCES "profile"("id"),
+	"id" SERIAL PRIMARY KEY,
+    "username" TEXT,
+    "profileId" serial REFERENCES "profile"("id"),
     "password" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "emailverified" BOOLEAN,
-    "verificationtoken" TEXT,
-	"userid" SERIAL,
-    "id" SERIAL PRIMARY KEY
+    "verificationtoken" TEXT
 );
 
 CREATE TABLE "article" (
 	"id" SERIAL PRIMARY KEY,
-	"slug" VARCHAR(255),
 	"description" TEXT,
 	"body" TEXT,
 	"createdAt" TIMESTAMP,
 	"updatedAt" TIMESTAMP,
-	"author" serial REFERENCES "profile"("id"),
+	"profileId" serial REFERENCES "profile"("id"),
 	"title" VARCHAR(255) NOT NULL
 );
 
@@ -33,8 +30,8 @@ CREATE TABLE "comment" (
 	"createdAt" TIMESTAMP,
 	"updatedAt" TIMESTAMP,
 	"body" TEXT,
-	"author" serial REFERENCES "profile"("id"),
-	"article" INT REFERENCES "article"("id")
+	"profileId" serial REFERENCES "profile"("id"),
+	"articleId" INT REFERENCES "article"("id")
 );
 
 CREATE TABLE "follows" (

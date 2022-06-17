@@ -8,16 +8,10 @@
   },
   "properties": {
     "username": {
-      "type": "number",
+      "type": "string",
       "required": true,
       "postgresql": {
         "columnName": "username"
-      }
-    },
-    "realm": {
-      "type": "string",
-      "postgresql": {
-        "columnName": "realm"
       }
     },
     "password": {
@@ -27,7 +21,7 @@
       }
     },
     "email": {
-      "type": "number",
+      "type": "string",
       "postgresql": {
         "columnName": "email"
       }
@@ -44,10 +38,10 @@
         "columnName": "verificationtoken"
       }
     },
-    "userid": {
+    "profileId": {
       "type": "number",
       "postgresql": {
-        "columnName": "userid"
+        "columnName": "profileId"
       }
     },
     "id": {
@@ -61,18 +55,8 @@
   "relations": {
     "profileRelation": {
       "type": "hasOne",
-      "model": "article",
-      "foreignKey": "author"
-    },
-    "profileRelation2": {
-      "type": "hasOne",
-      "model": "comment",
-      "foreignKey": "author"
-    },
-    "profileRelation3": {
-      "type": "hasOne",
-      "model": "user",
-      "foreignKey": "username"
+      "model": "profile",
+      "foreignKey": "profileId"
     }
   },
   "acls": [],
