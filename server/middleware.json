@@ -5,6 +5,7 @@
   "initial": {
     "compression": {},
     "helmet#xssFilter": {},
+    "loopback-context#per-request": {},
     "helmet#frameguard": {
       "params": {
         "action": "deny"

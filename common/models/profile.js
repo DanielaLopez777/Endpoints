@@ -1,24 +1,30 @@
 'use strict';
 
-const { loopback } = require("loopback");
+const loopback  = require("loopback");
 
+const LoopBackContext = require('loopback-context');
 
 module.exports = function(Profile) {
 
-    Profile.followUser = async function (username){
-        const follows = Profile.app.loopback.getModel("Follows");
-        const data = await Profile.findOne({where:{username}});
-        tok=loopback.token();
-        follows.create({follower: tok, following: username});       
+    Profile.followUser = async function (prof){
+        let ctx = LoopBackContext.getCurrentContext();
+        let currentUser = ctx && ctx.get('currentUser');
+        let user =  currentUser.username;
+
+        let follows = Profile.app.loopback.getModel("Follows");
+        let data = await Profile.findOne({where:{prof}});
+
+        follows.create({follower: user, following: prof});       
         return data;
         
     }
     Profile.remoteMethod('followUser',{
             http: { verb: 'post'},
-            accepts: [{ arg: "username", type: "string" }],
+            accepts: [{ arg: "prof", type: "string" }],
             returns: { arg: "FollowUser", type: "object" }
     });
 
+    /*
     Profile.unfollowUser = async function (prof, username){
         const data = await Profile.findOne({where:{username}})
         console.log("data", data)
@@ -30,6 +36,6 @@ module.exports = function(Profile) {
             http: { verb: 'delete'},
             accepts:{ arg: "username", type: "string" },
             returns: { arg: "UnfollowUser", type: "object" }
-    });
+    });*/
 };
 
