@@ -32,21 +32,32 @@
         "columnName": "body"
       }
     },
-    "author": {
+    "profileId": {
       "type": "number",
       "postgresql": {
-        "columnName": "author"
+        "columnName": "profileId"
       }
     },
-    "article": {
+    "articleId": {
       "type": "number",
       "postgresql": {
-        "columnName": "article"
+        "columnName": "articleId"
       }
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "commentRelation": {
+      "type": "hasOne",
+      "model": "article",
+      "foreignKey": "articleId"
+    },
+    "commentRelation2": {
+      "type": "hasOne",
+      "model": "profile",
+      "foreignKey": "profileId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

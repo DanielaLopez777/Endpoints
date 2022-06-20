@@ -49,6 +49,12 @@
       "postgresql": {
         "columnName": "id"
       }
+    },
+    "realm": {
+      "type": "text",
+      "postgresql": {
+        "columnName": "realm"
+      }
     }
   },
   "validations": [],

@@ -7,6 +7,13 @@
     "validateUpsert": true
   },
   "properties": {
+    "id": {
+      "type": "number",
+      "required": true,
+      "postgresql": {
+        "columnName": "id"
+      }
+    },
     "follower": {
       "type": "number",
       "required": true
@@ -17,7 +24,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "followsRelation": {
+      "type": "hasOne",
+      "model": "user",
+      "foreignKey": "follower"
+    },
+    "followsRelation2": {
+      "type": "hasOne",
+      "model": "profile",
+      "foreignKey": "following"
+    }
+  },
   "acls": [],
   "methods": {}
 }

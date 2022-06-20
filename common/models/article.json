@@ -14,12 +14,6 @@
         "columnName": "id"
       }
     },
-    "slug": {
-      "type": "string",
-      "postgresql": {
-        "columnName": "slug"
-      }
-    },
     "description": {
       "type": "string",
       "postgresql": {
@@ -44,10 +38,10 @@
         "columnName": "updatedAt"
       }
     },
-    "author": {
+    "profileId": {
       "type": "number",
       "postgresql": {
-        "columnName": "author"
+        "columnName": "profileId"
       }
     },
     "title": {
@@ -62,8 +56,8 @@
   "relations": {
     "articleRelation": {
       "type": "hasOne",
-      "model": "comment",
-      "foreignKey": "article"
+      "model": "profile",
+      "foreignKey": "profileId"
     }
   },
   "acls": [],

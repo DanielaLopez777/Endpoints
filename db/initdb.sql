@@ -12,7 +12,8 @@ CREATE TABLE "user" (
     "password" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "emailverified" BOOLEAN,
-    "verificationtoken" TEXT
+    "verificationtoken" TEXT,
+	"realm" TEXT
 );
 
 CREATE TABLE "article" (

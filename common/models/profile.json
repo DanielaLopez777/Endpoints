@@ -34,23 +34,7 @@
     }
   },
   "validations": [],
-  "relations": {
-    "profileRelation": {
-      "type": "hasOne",
-      "model": "article",
-      "foreignKey": "author"
-    },
-    "profileRelation2": {
-      "type": "hasOne",
-      "model": "comment",
-      "foreignKey": "author"
-    },
-    "profileRelation3": {
-      "type": "hasOne",
-      "model": "user",
-      "foreignKey": "username"
-    }
-  },
+  "relations": {},
   "acls": [
     {
       "accessType": "EXECUTE",
