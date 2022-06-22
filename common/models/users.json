@@ -59,10 +59,10 @@
   },
   "validations": [],
   "relations": {
-    "profileRelation": {
+    "userrelation1": {
       "type": "hasOne",
-      "model": "profile",
-      "foreignKey": "profileId"
+      "model": "follows",
+      "foreignKey": "follower"
     }
   },
   "acls": [],

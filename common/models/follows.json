@@ -24,18 +24,7 @@
     }
   },
   "validations": [],
-  "relations": {
-    "followsRelation": {
-      "type": "hasOne",
-      "model": "user",
-      "foreignKey": "follower"
-    },
-    "followsRelation2": {
-      "type": "hasOne",
-      "model": "profile",
-      "foreignKey": "following"
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

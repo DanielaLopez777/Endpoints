@@ -34,7 +34,29 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "profilerelation1": {
+      "type": "hasOne",
+      "model": "article",
+      "foreignKey": "profileId"
+    },
+    "profilerelation2": {
+      "type": "hasOne",
+      "model": "comment",
+      "foreignKey": "profileId"
+    },
+    "profilerelation3": {
+      "type": "hasOne",
+      "model": "user",
+      "foreignKey": "profileId"
+    },
+    "profilerelation4": {
+      "type": "hasOne",
+      "model": "follows",
+      "foreignKey": "following"
+    }
+
+  },
   "acls": [
     {
       "accessType": "EXECUTE",

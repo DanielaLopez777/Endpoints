@@ -56,8 +56,8 @@
   "relations": {
     "articleRelation": {
       "type": "hasOne",
-      "model": "profile",
-      "foreignKey": "profileId"
+      "model": "comment",
+      "foreignKey": "articleId"
     }
   },
   "acls": [],

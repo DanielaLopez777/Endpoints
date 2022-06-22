@@ -30,8 +30,9 @@ module.exports = function(Profile) {
             accepts: [
                 { arg: "prof", type: "number" },
                 {arg: "options", type: "object", http: "optionsFromRequest"}
+
             ],
-            returns: { arg: "FollowUser", type: "object" }
+            returns: { arg: "data", type: "object" }
     });
 
     /*          

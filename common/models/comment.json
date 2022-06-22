@@ -46,18 +46,7 @@
     }
   },
   "validations": [],
-  "relations": {
-    "commentRelation": {
-      "type": "hasOne",
-      "model": "article",
-      "foreignKey": "articleId"
-    },
-    "commentRelation2": {
-      "type": "hasOne",
-      "model": "profile",
-      "foreignKey": "profileId"
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }
