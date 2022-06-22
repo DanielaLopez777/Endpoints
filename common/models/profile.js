@@ -10,43 +10,45 @@ module.exports = function(Profile) {
         
         const token = options && options.accessToken;
         const userId = token && token.userId;
-        //const user = userId ? 'user#' + userId : '<anonymous>'; NOOOOO
-        console.log(userId);
-        /*
-        let ctx = LoopBackContext.getCurrentContext();
-        let currentUser = ctx && ctx.get('currentUser');
-        let user =  currentUser.username;*/
-
         let follows = Profile.app.loopback.getModel("Follows");
-
-        let data = await Profile.findOne({where:{prof}});
-
-        follows.create({follower: userId, following: prof});       
+        let data = await Profile.findOne({where:{'username': prof}});
+        let ProfileId= data.id;
+        follows.create({follower: userId, following: ProfileId});       
         return data;
         
     }
     Profile.remoteMethod('followUser',{
             http: { verb: 'post'},
             accepts: [
-                { arg: "prof", type: "number" },
+                { arg: "prof", type: "string" },
                 {arg: "options", type: "object", http: "optionsFromRequest"}
 
             ],
             returns: { arg: "data", type: "object" }
     });
 
-    /*          
-    Profile.unfollowUser = async function (prof, username){
-        const data = await Profile.findOne({where:{username}})
-        console.log("data", data)
-        const deleted = await Profile.deleteById(data.id)
-        console.log(deleted)
+
+    Profile.unfollowUser = async function (prof, options){
+        
+        const token = options && options.accessToken;
+        const userId = token && token.userId;
+        let follows = Profile.app.loopback.getModel("Follows");
+        let data = await Profile.findOne({where:{'username': prof}});
+        let ProfileId= data.id;
+
+        follows.deleteById(ProfileId);     
+
         return data;
+        
     }
     Profile.remoteMethod('unfollowUser',{
-            http: { verb: 'delete'},
-            accepts:{ arg: "username", type: "string" },
-            returns: { arg: "UnfollowUser", type: "object" }
-    });*/
+            http: { verb: 'post'},
+            accepts: [
+                { arg: "prof", type: "string" },
+                {arg: "options", type: "object", http: "optionsFromRequest"}
+
+            ],
+            returns: { arg: "data", type: "object" }
+    });
 };
 
