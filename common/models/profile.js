@@ -10,19 +10,18 @@ module.exports = function(Profile) {
         
         const token = options && options.accessToken;
         const userId = token && token.userId;
-        const user = userId ? 'user#' + userId : '<anonymous>';
-        console.log('(%s)', user);
+        //const user = userId ? 'user#' + userId : '<anonymous>'; NOOOOO
+        console.log(userId);
         /*
         let ctx = LoopBackContext.getCurrentContext();
         let currentUser = ctx && ctx.get('currentUser');
         let user =  currentUser.username;*/
 
-
-
         let follows = Profile.app.loopback.getModel("Follows");
+
         let data = await Profile.findOne({where:{prof}});
 
-        follows.create({follower: user, following: prof});       
+        follows.create({follower: userId, following: prof});       
         return data;
         
     }
